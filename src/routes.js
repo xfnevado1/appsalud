@@ -16,14 +16,14 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Notifications from "views/Notifications.js";
+/* import Notifications from "views/Notifications.js";
 import Icons from "views/Icons.js";
 import Typography from "views/Typography.js";
 import TableList from "views/TableList.js";
-import Maps from "views/Maps.js";
-import Upgrade from "views/Upgrade.js";
+ *///import Maps from "views/Maps.js";
+/* import Upgrade from "views/Upgrade.js";
 import UserPage from "views/UserPage.js";
-
+ */
 var dashRoutes = [
   {
     path: "/dashboard",
@@ -32,7 +32,7 @@ var dashRoutes = [
     component: Dashboard,
     layout: "/admin",
   },
-  {
+ /*  {
     path: "/icons",
     name: "Icons",
     icon: "design_image",
@@ -82,5 +82,6 @@ var dashRoutes = [
     component: Upgrade,
     layout: "/admin",
   },
+ */
 ];
 export default dashRoutes;

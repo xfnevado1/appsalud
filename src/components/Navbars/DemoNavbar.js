@@ -20,20 +20,21 @@ import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
-  NavbarToggler,
+  /* NavbarToggler, */
   NavbarBrand,
   Nav,
   NavItem,
   Dropdown,
-  DropdownToggle,
+/*   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+ */  
   Container,
   InputGroup,
-  InputGroupText,
-  InputGroupAddon,
-  Input,
-} from "reactstrap";
+  /* InputGroupText, */
+  /* InputGroupAddon, */
+  Form,
+} from "react-bootstrap";
 
 import routes from "routes.js";
 
@@ -134,7 +135,7 @@ class Header extends React.Component {
               (this.state.color === "transparent" ? "navbar-transparent " : "")
         }
       >
-        <Container fluid>
+        <Container fluid >
           <div className="navbar-wrapper">
             <div className="navbar-toggle">
               <button
@@ -148,26 +149,26 @@ class Header extends React.Component {
                 <span className="navbar-toggler-bar bar3" />
               </button>
             </div>
-            <NavbarBrand href="/">{this.getBrand()}</NavbarBrand>
+            <Navbar.Brand href="/">{this.getBrand()}</Navbar.Brand>
           </div>
-          <NavbarToggler onClick={this.toggle}>
+          <Navbar.Toggle onClick={this.toggle}>
             <span className="navbar-toggler-bar navbar-kebab" />
             <span className="navbar-toggler-bar navbar-kebab" />
             <span className="navbar-toggler-bar navbar-kebab" />
-          </NavbarToggler>
-          <Collapse
+          </Navbar.Toggle>
+          {/* <Collapse
             isOpen={this.state.isOpen}
             navbar
             className="justify-content-end"
           >
             <form>
               <InputGroup className="no-border">
-                <Input placeholder="Search..." />
-                <InputGroupAddon addonType="append">
-                  <InputGroupText>
+                <Form.Control placeholder="Search..." />
+                <InputGroup.Addon addonType="append">
+                  <InputGroup.Text>
                     <i className="now-ui-icons ui-1_zoom-bold" />
-                  </InputGroupText>
-                </InputGroupAddon>
+                  </InputGroup.Text>
+                </InputGroup.Addon>
               </InputGroup>
             </form>
             <Nav navbar>
@@ -184,17 +185,17 @@ class Header extends React.Component {
                 isOpen={this.state.dropdownOpen}
                 toggle={(e) => this.dropdownToggle(e)}
               >
-                <DropdownToggle caret nav>
+                <Dropdown.Toggle caret nav>
                   <i className="now-ui-icons location_world" />
                   <p>
                     <span className="d-lg-none d-md-block">Some Actions</span>
                   </p>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem tag="a">Action</DropdownItem>
-                  <DropdownItem tag="a">Another Action</DropdownItem>
-                  <DropdownItem tag="a">Something else here</DropdownItem>
-                </DropdownMenu>
+                </Dropdown.Toggle>
+                <Dropdown right>
+                  <Dropdown.Item tag="a">Action</Dropdown.Item>
+                  <Dropdown.Item tag="a">Another Action</Dropdown.Item>
+                  <Dropdown.Item tag="a">Something else here</Dropdown.Item>
+                </Dropdown>
               </Dropdown>
               <NavItem>
                 <Link to="#pablo" className="nav-link">
@@ -205,7 +206,7 @@ class Header extends React.Component {
                 </Link>
               </NavItem>
             </Nav>
-          </Collapse>
+          </Collapse> */}
         </Container>
       </Navbar>
     );
