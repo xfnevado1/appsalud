@@ -21,9 +21,9 @@ import {
   Collapse,
   Navbar,
   /* NavbarToggler, */
-  NavbarBrand,
+  /* NavbarBrand, */
   Nav,
-  NavItem,
+  /* NavItem, */
   Dropdown,
 /*   DropdownToggle,
   DropdownMenu,
@@ -156,30 +156,33 @@ class Header extends React.Component {
             <span className="navbar-toggler-bar navbar-kebab" />
             <span className="navbar-toggler-bar navbar-kebab" />
           </Navbar.Toggle>
-          {/* <Collapse
-            isOpen={this.state.isOpen}
+          <Collapse
+            in={this.state.isOpen}
             navbar
             className="justify-content-end"
           >
-            <form>
-              <InputGroup className="no-border">
-                <Form.Control placeholder="Search..." />
-                <InputGroup.Addon addonType="append">
-                  <InputGroup.Text>
-                    <i className="now-ui-icons ui-1_zoom-bold" />
-                  </InputGroup.Text>
-                </InputGroup.Addon>
-              </InputGroup>
-            </form>
             <Nav navbar>
-              <NavItem>
+              <Nav.Item>
+              <Form>
+                <InputGroup className="no-border">
+                  <Form.Control placeholder="Search..." />
+                  <InputGroup.Append>
+                    <InputGroup.Text>
+                      <i className="now-ui-icons ui-1_zoom-bold" />
+                    </InputGroup.Text>
+                  </InputGroup.Append>
+               </InputGroup>
+              </Form>
+              </Nav.Item>
+          
+              <Nav.Item>
                 <Link to="#pablo" className="nav-link">
                   <i className="now-ui-icons media-2_sound-wave" />
                   <p>
                     <span className="d-lg-none d-md-block">Stats</span>
                   </p>
                 </Link>
-              </NavItem>
+              </Nav.Item>
               <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
@@ -197,16 +200,16 @@ class Header extends React.Component {
                   <Dropdown.Item tag="a">Something else here</Dropdown.Item>
                 </Dropdown>
               </Dropdown>
-              <NavItem>
+              <Nav.Item>
                 <Link to="#pablo" className="nav-link">
                   <i className="now-ui-icons users_single-02" />
                   <p>
                     <span className="d-lg-none d-md-block">Account</span>
                   </p>
                 </Link>
-              </NavItem>
+              </Nav.Item>
             </Nav>
-          </Collapse> */}
+          </Collapse>
         </Container>
       </Navbar>
     );
