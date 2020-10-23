@@ -1,32 +1,7 @@
-/*!
-
-=========================================================
-* Now UI Dashboard React - v1.4.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  Table,
-  Row,
-  Col,
-} from "reactstrap";
+import { Card, Table, Row, Col } from "react-bootstrap";
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
@@ -42,10 +17,10 @@ class RegularTables extends React.Component {
           <Row>
             <Col xs={12}>
               <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">Simple Table</CardTitle>
-                </CardHeader>
-                <CardBody>
+                <Card.Header>
+                  <Card.Title tag="h4">Simple Table</Card.Title>
+                </Card.Header>
+                <Card.Body>
                   <Table responsive>
                     <thead className="text-primary">
                       <tr>
@@ -78,16 +53,16 @@ class RegularTables extends React.Component {
                       })}
                     </tbody>
                   </Table>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
             <Col xs={12}>
               <Card className="card-plain">
-                <CardHeader>
-                  <CardTitle tag="h4">Table on Plain Background</CardTitle>
+                <Card.Header>
+                  <Card.Title tag="h4">Table on Plain Background</Card.Title>
                   <p className="category"> Here is a subtitle for this table</p>
-                </CardHeader>
-                <CardBody>
+                </Card.Header>
+                <Card.Body>
                   <Table responsive>
                     <thead className="text-primary">
                       <tr>
@@ -120,7 +95,7 @@ class RegularTables extends React.Component {
                       })}
                     </tbody>
                   </Table>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
           </Row>

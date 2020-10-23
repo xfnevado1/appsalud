@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
+
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -50,30 +51,27 @@ class Sidebar extends React.Component {
           >
             Creative Tim
           </a>
+          <div className="navbar-minimize">
+            <button type="button" id="minimizeSidebar" className="btn-round btn-icon btn btn-outline-neutral">
+              <i className="now-ui-icons text_align-center visible-on-sidebar-regular"></i>
+              <i className="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini"></i>
+              </button>
+            </div>
         </div>
         <div className="sidebar-wrapper" ref="sidebar">
           <Nav>
             {this.props.routes.map((prop, key) => {
-              if (prop.redirect) return null;
+              //if (prop.redirect) return null;
               return (
-                <li
-                  className={
-                    this.activeRoute(prop.layout + prop.path) +
-                    (prop.pro ? " active active-pro" : "")
-                  }
-                  key={key}
-                >
-                  <NavLink
-                    to={prop.layout + prop.path}
-                    className="nav-link"
-                    activeClassName="active"
-                  >
+                <li className={ this.activeRoute(prop.layout + prop.path) + (prop.pro ? " active active-pro" : "") } key={key} >
+                  <NavLink to={prop.layout + prop.path} className="nav-link" activeClassName="active" >
                     <i className={"now-ui-icons " + prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>
                 </li>
               );
-            })}
+            })
+          }
           </Nav>
         </div>
       </div>

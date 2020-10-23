@@ -1,42 +1,18 @@
-/*!
-
-=========================================================
-* Now UI Dashboard React - v1.4.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
-  /* NavbarToggler, */
-  /* NavbarBrand, */
   Nav,
-  /* NavItem, */
   Dropdown,
-/*   DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
- */  
   Container,
   InputGroup,
-  /* InputGroupText, */
-  /* InputGroupAddon, */
   Form,
 } from "react-bootstrap";
 
 import routes from "routes.js";
+
+//import "assets/css/now-ui-dashboard.css"
 
 class Header extends React.Component {
   state = {
@@ -127,7 +103,7 @@ class Header extends React.Component {
             ? "white"
             : this.state.color
         }
-        expand="lg"
+        /* expand="lg" */
         className={
           this.props.location.pathname.indexOf("full-screen-maps") !== -1
             ? "navbar-absolute fixed-top"
@@ -157,22 +133,22 @@ class Header extends React.Component {
             <span className="navbar-toggler-bar navbar-kebab" />
           </Navbar.Toggle>
           <Collapse
-            in={this.state.isOpen}
-            navbar
-            className="justify-content-end"
+            in={true /* this.state.isOpen */}
+            /* navbar */
+            /* className="justify-content-end" */
           >
-            <Nav navbar>
+            <Navbar>
               <Nav.Item>
-              <Form>
-                <InputGroup className="no-border">
-                  <Form.Control placeholder="Search..." />
-                  <InputGroup.Append>
-                    <InputGroup.Text>
-                      <i className="now-ui-icons ui-1_zoom-bold" />
-                    </InputGroup.Text>
-                  </InputGroup.Append>
-               </InputGroup>
-              </Form>
+                <Form>
+                  <InputGroup className="no-border">
+                    <Form.Control placeholder="Search..." />
+                    <InputGroup.Append>
+                      <InputGroup.Text>
+                        <i className="now-ui-icons ui-1_zoom-bold" />
+                      </InputGroup.Text>
+                    </InputGroup.Append>
+                </InputGroup>
+                </Form>
               </Nav.Item>
           
               <Nav.Item>
@@ -183,22 +159,18 @@ class Header extends React.Component {
                   </p>
                 </Link>
               </Nav.Item>
-              <Dropdown
-                nav
-                isOpen={this.state.dropdownOpen}
-                toggle={(e) => this.dropdownToggle(e)}
-              >
-                <Dropdown.Toggle caret nav>
+              <Dropdown /* isOpen={this.state.dropdownOpen} toggle={(e) => this.dropdownToggle(e)} */ >
+                <Dropdown.Toggle>
                   <i className="now-ui-icons location_world" />
                   <p>
                     <span className="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </Dropdown.Toggle>
-                <Dropdown right>
+                <Dropdown.Menu>
                   <Dropdown.Item tag="a">Action</Dropdown.Item>
                   <Dropdown.Item tag="a">Another Action</Dropdown.Item>
                   <Dropdown.Item tag="a">Something else here</Dropdown.Item>
-                </Dropdown>
+                </Dropdown.Menu>
               </Dropdown>
               <Nav.Item>
                 <Link to="#pablo" className="nav-link">
@@ -208,7 +180,7 @@ class Header extends React.Component {
                   </p>
                 </Link>
               </Nav.Item>
-            </Nav>
+            </Navbar>
           </Collapse>
         </Container>
       </Navbar>

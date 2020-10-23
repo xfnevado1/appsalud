@@ -1,33 +1,7 @@
-/*!
-
-=========================================================
-* Now UI Dashboard React - v1.4.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { Component } from "react";
 
 // reactstrap components
-import {
-  Table,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  Button,
-} from "reactstrap";
+import { Table, Row, Col, Card, Button, } from "react-bootstrap";
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
@@ -41,14 +15,14 @@ class Upgrade extends Component {
           <Row>
             <Col>
               <Card>
-                <CardHeader>
-                  <CardTitle>Now UI Dashboard PRO React</CardTitle>
+                <Card.Header>
+                  <Card.Title>Now UI Dashboard PRO React</Card.Title>
                   <p className="category">
                     Are you looking for more components? Please check our
                     Premium Version of Now UI Dashboard React.
                   </p>
-                </CardHeader>
-                <CardBody>
+                </Card.Header>
+                <Card.Body>
                   <Table responsive>
                     <thead>
                       <tr>
@@ -138,7 +112,7 @@ class Upgrade extends Component {
                       </tr>
                     </tbody>
                   </Table>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
           </Row>
