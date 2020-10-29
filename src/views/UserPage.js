@@ -23,10 +23,10 @@ class User extends React.Component {
           <Row>
             <Col md="8">
               <Card>
-                <CardHeader>
+                <Card.Header>
                   <h5 className="title">Edit Profile</h5>
-                </CardHeader>
-                <CardBody>
+                </Card.Header>
+                <Card.Body>
                   <Form>
                     <Row>
                       <Col className="pr-1" md="5">
@@ -137,7 +137,7 @@ class User extends React.Component {
                       </Col>
                     </Row>
                   </Form>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
             <Col md="4">

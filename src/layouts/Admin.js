@@ -3,7 +3,7 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
@@ -50,12 +50,16 @@ class Dashboard extends React.Component {
           <DemoNavbar {...this.props} />
           <Switch>
             {routes.map((prop, key) => {
-              //console.log(prop.component)
-              return (
-                <Route path={prop.layout + prop.path} component={prop.component} key={key} />
-              );
+              if (prop.childs){
+                return prop.childs.map((item, id)=>{
+                  return <Route path={item.layout + item.path} component={item.component} key={id} />
+                })
+              }
+              else{
+                return <Route path={prop.layout + prop.path} component={prop.component} key={key} />
+              }
             })}
-            <Redirect from="/admin" to="/admin/dashboard" />
+            {/* <Redirect from="/admin" to="/admin/dashboard" /> */}
           </Switch>
           <Footer fluid />
         </div>

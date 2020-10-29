@@ -16,18 +16,22 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "design_image",
-    component: Icons,
-    layout: "/admin",
+    path: "/Pages", name: "Pages", icon: "design_image", layout: "/admin",
+    childs: [
+      { path: "/Timeline", name: "Pages", icon: "TP", component: Icons, layout: "/admin"},
+      { path: "/User-Prof", name: "User Prof", icon: "TP", component: TableList, layout: "/admin"},
+      { path: "/Rtl-Support", name: "Rtl Support", icon: "RS", component: Dashboard, layout: "/admin"},
+      { path: "/Register", name: "Register Page", icon: "RP", component: TableList, layout: "/admin"},
+      { path: "/Pricing", name: "Pricing Page", icon: "PP", component: Icons, layout: "/admin"},
+  ]
   },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "location_map-big",
-    component: Maps,
-    layout: "/admin",
+  { path: "/Components", name: "Componentes", icon: "location_map-big", layout: "/admin",
+    childs: [
+      { path: "/Map", name: "Mapas", icon: "MP", component: Maps, layout: "/admin"},
+      { path: "/Grid-System", name: "Grid System", icon: "GS", component: Notifications, layout: "/admin"},
+      { path: "/Panels", name: "Paneles", icon: "NO", component: TableList, layout: "/admin"},
+      { path: "/Icons", name: "Iconos", icon: "IC", component: Icons, layout: "/admin"},
+    ]
   },
   {
     path: "/notifications",
@@ -43,28 +47,11 @@ var dashRoutes = [
     component: UserPage,
     layout: "/admin",
   },
-  {
-    path: "/extended-tables",
-    name: "Table List",
-    icon: "files_paper",
-    component: TableList,
-    layout: "/admin",
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "design-2_ruler-pencil",
-    component: Typography,
-    layout: "/admin",
-  },
-/*   {
-    pro: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "objects_spaceship",
-    component: Upgrade,
-    layout: "/admin",
-  },
- */
+  { path: "/Tables", name: "Tablas", icon: "design_image", layout: "/admin",
+    childs: [ 
+      { path: "/extended-tables", name: "Table List", icon: "TL", component: TableList, layout: "/admin" },
+      { path: "/typography", name: "Typography", icon: "TY", component: Typography, layout: "/admin"}
+    ]
+  }
 ];
 export default dashRoutes;
