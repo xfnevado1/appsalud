@@ -9,7 +9,7 @@ import "assets/css/now-ui-dashboardx.css"
 //import "assets/css/now-ui-dashboard.minaa26.css"
 import "assets/css/demo.css";
 
-import AdminLayout from "layouts/Admin.js";
+import AdminLayout from "App.js";
 
 //const hist = createBrowserHistory();
 
