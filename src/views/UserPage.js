@@ -1,25 +1,12 @@
 import React from "react";
 
 // reactstrap components
-import {
-  Button,
-  Card,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Col,
-} from "reactstrap";
-
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
+import { Button, Card, FormGroup, Form, Row, Col } from "react-bootstrap";
 
 class User extends React.Component {
   render() {
     return (
       <>
-        <PanelHeader size="sm" />
-        <div className="content">
           <Row>
             <Col md="8">
               <Card>
@@ -32,7 +19,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="5">
                         <FormGroup>
                           <label>Company (disabled)</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="Creative Code Inc."
                             disabled
                             placeholder="Company"
@@ -43,7 +30,7 @@ class User extends React.Component {
                       <Col className="px-1" md="3">
                         <FormGroup>
                           <label>Username</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="michael23"
                             placeholder="Username"
                             type="text"
@@ -52,10 +39,10 @@ class User extends React.Component {
                       </Col>
                       <Col className="pl-1" md="4">
                         <FormGroup>
-                          <label htmlFor="exampleInputEmail1">
+                          <label htmlFor="exampleForm.Control Email1">
                             Email address
                           </label>
-                          <Input placeholder="Email" type="email" />
+                          <Form.Control placeholder="Email" type="email" />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -63,7 +50,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="6">
                         <FormGroup>
                           <label>First Name</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="Mike"
                             placeholder="Company"
                             type="text"
@@ -73,7 +60,7 @@ class User extends React.Component {
                       <Col className="pl-1" md="6">
                         <FormGroup>
                           <label>Last Name</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="Andrew"
                             placeholder="Last Name"
                             type="text"
@@ -85,7 +72,7 @@ class User extends React.Component {
                       <Col md="12">
                         <FormGroup>
                           <label>Address</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
                             placeholder="Home Address"
                             type="text"
@@ -97,7 +84,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="4">
                         <FormGroup>
                           <label>City</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="Mike"
                             placeholder="City"
                             type="text"
@@ -107,7 +94,7 @@ class User extends React.Component {
                       <Col className="px-1" md="4">
                         <FormGroup>
                           <label>Country</label>
-                          <Input
+                          <Form.Control 
                             defaultValue="Andrew"
                             placeholder="Country"
                             type="text"
@@ -117,7 +104,7 @@ class User extends React.Component {
                       <Col className="pl-1" md="4">
                         <FormGroup>
                           <label>Postal Code</label>
-                          <Input placeholder="ZIP Code" type="number" />
+                          <Form.Control  placeholder="ZIP Code" type="number" />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -125,7 +112,7 @@ class User extends React.Component {
                       <Col md="12">
                         <FormGroup>
                           <label>About Me</label>
-                          <Input
+                          <Form.Control 
                             cols="80"
                             defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
                             that two seat Lambo."
@@ -145,7 +132,7 @@ class User extends React.Component {
                 <div className="image">
                   <img alt="..." src={require("assets/img/bg5.jpg")} />
                 </div>
-                <CardBody>
+                <Card.Body>
                   <div className="author">
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
@@ -162,7 +149,7 @@ class User extends React.Component {
                     Your chick she so thirsty <br />
                     I'm in that two seat Lambo"
                   </p>
-                </CardBody>
+                </Card.Body>
                 <hr />
                 <div className="button-container">
                   <Button
@@ -196,7 +183,6 @@ class User extends React.Component {
               </Card>
             </Col>
           </Row>
-        </div>
       </>
     );
   }

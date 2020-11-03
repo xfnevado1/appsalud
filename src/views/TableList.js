@@ -2,18 +2,12 @@ import React from "react";
 
 // reactstrap components
 import { Card, Table, Row, Col } from "react-bootstrap";
-
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
-
 import { thead, tbody } from "variables/general";
 
 class RegularTables extends React.Component {
   render() {
     return (
       <>
-        <PanelHeader size="sm" />
-        <div className="content">
           <Row>
             <Col xs={12}>
               <Card>
@@ -99,7 +93,6 @@ class RegularTables extends React.Component {
               </Card>
             </Col>
           </Row>
-        </div>
       </>
     );
   }

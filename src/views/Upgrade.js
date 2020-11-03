@@ -3,15 +3,10 @@ import React, { Component } from "react";
 // reactstrap components
 import { Table, Row, Col, Card, Button, } from "react-bootstrap";
 
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
-
 class Upgrade extends Component {
   render() {
     return (
       <>
-        <PanelHeader size="sm" />
-        <div className="content">
           <Row>
             <Col>
               <Card>
@@ -116,7 +111,6 @@ class Upgrade extends Component {
               </Card>
             </Col>
           </Row>
-        </div>
       </>
     );
   }

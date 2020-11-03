@@ -3,17 +3,32 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
+import { Card } from 'react-bootstrap';
 import { Route, Switch } from "react-router-dom";
 
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-//import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+//import FixedPlugin from "components/FixedPlugin/FixedPlugin.js"; /*{console.log(Component)}*/
+import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
 import routes from "routes.js";
 
 var ps;
+
+const ContentData = ({title, Component}) => <>
+  <Card className="card-header-content">
+    <Card.Header>
+      <Card.Title as="h5">{title}</Card.Title>
+    </Card.Header>
+  </Card>
+  <Card>
+  <Card.Body>
+    <Component />
+  </Card.Body>
+  </Card>
+</>
 
 class Dashboard extends React.Component {
   state = {
@@ -48,19 +63,19 @@ class Dashboard extends React.Component {
         <Sidebar {...this.props} routes={routes} backgroundColor={this.state.backgroundColor} />
         <div className="main-panel" ref={this.mainPanel}>
           <DemoNavbar {...this.props} />
-          <Switch>
-            {routes.map((prop, key) => {
-              if (prop.childs){
-                return prop.childs.map((item, id)=>{
-                  return <Route path={item.layout + item.path} component={item.component} key={id} />
-                })
-              }
-              else{
-                return <Route path={prop.layout + prop.path} component={prop.component} key={key} />
-              }
-            })}
-            {/* <Redirect from="/admin" to="/admin/dashboard" /> */}
-          </Switch>
+          <PanelHeader size="sm" />
+          <div className="content">
+              <Switch>
+                {routes.map((data, key) => {
+                  if (data.childs){ 
+                    return data.childs.map((item, id)=><Route path={item.layout + item.path} render={()=><ContentData title={item.name} Component={item.component} />}  key={id} />) 
+                  }
+                  else{
+                    return <Route path={data.layout + data.path} render={()=><ContentData title={data.name} Component={data.component} />}  key={key} />
+                  }
+                })}
+              </Switch>
+          </div>
           <Footer fluid />
         </div>
         {/* <FixedPlugin bgColor={this.state.backgroundColor} handleColorClick={this.handleColorClick} /> */}

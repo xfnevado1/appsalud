@@ -1,38 +1,15 @@
-/*!
-
-=========================================================
-* Now UI Dashboard React - v1.4.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // react plugin for creating notifications over the dashboard
-import NotificationAlert from "react-notification-alert";
+//import NotificationAlert from "react-notification-alert";
 
 // reactstrap components
 import {
   Alert,
   Card,
-  CardTitle,
-  CardBody,
-  CardHeader,
   Row,
   Col,
   Button,
-} from "reactstrap";
-
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
+} from "react-bootstrap";
 
 class Notifications extends React.Component {
   constructor(props) {
@@ -86,48 +63,29 @@ class Notifications extends React.Component {
   render() {
     return (
       <>
-        <PanelHeader
-          content={
-            <div className="header text-center">
-              <h2 className="title">Notifications</h2>
-              <p className="category">
-                Please Checkout{" "}
-                <a
-                  href="https://github.com/creativetimofficial/react-notification-alert"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  The Full Documentation
-                </a>
-                .
-              </p>
-            </div>
-          }
-        />
-        <div className="content">
-          <NotificationAlert ref="notificationAlert" />
+          {/* <NotificationAlert ref="notificationAlert" /> */}
           <Row>
             <Col md={6} xs={12}>
               <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">Notifications Style</CardTitle>
-                </CardHeader>
-                <CardBody>
+                <Card.Header>
+                  <Card.Title tag="h4">Notifications Style</Card.Title>
+                </Card.Header>
+                <Card.Body>
                   <Alert color="info">
                     <span>This is a plain notification</span>
                   </Alert>
                   <Alert
                     color="info"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span>This is a notification with close button.</span>
                   </Alert>
                   <Alert
                     color="info"
                     className="alert-with-icon"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span
                       data-notify="icon"
@@ -140,8 +98,8 @@ class Notifications extends React.Component {
                   <Alert
                     color="info"
                     className="alert-with-icon"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span
                       data-notify="icon"
@@ -154,19 +112,19 @@ class Notifications extends React.Component {
                       notification. So you don't have to worry about the style.
                     </span>
                   </Alert>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
             <Col md={6} xs={12}>
               <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">Notification states</CardTitle>
-                </CardHeader>
-                <CardBody>
+                <Card.Header>
+                  <Card.Title tag="h4">Notification states</Card.Title>
+                </Card.Header>
+                <Card.Body>
                   <Alert
                     color="primary"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span>
                       <b> Primary - </b> This is a regular notification made
@@ -175,8 +133,8 @@ class Notifications extends React.Component {
                   </Alert>
                   <Alert
                     color="info"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span>
                       <b> Info - </b> This is a regular notification made with
@@ -185,8 +143,8 @@ class Notifications extends React.Component {
                   </Alert>
                   <Alert
                     color="success"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span>
                       <b> Success - </b> This is a regular notification made
@@ -195,8 +153,8 @@ class Notifications extends React.Component {
                   </Alert>
                   <Alert
                     color="warning"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span>
                       <b> Warning - </b> This is a regular notification made
@@ -205,29 +163,29 @@ class Notifications extends React.Component {
                   </Alert>
                   <Alert
                     color="danger"
-                    isOpen={this.state.visible}
-                    toggle={this.onDismiss}
+                    show={this.state.visible}
+                    //toggle={this.onDismiss}
                   >
                     <span>
                       <b> Danger - </b> This is a regular notification made with
                       color="danger"
                     </span>
                   </Alert>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
             <Col md={12} xs={12}>
               <Card>
-                <CardBody>
+                <Card.Body>
                   <div className="places-buttons">
                     <Row>
                       <Col md={6} className="ml-auto mr-auto text-center">
-                        <CardTitle tag="h4">
+                        <Card.Title tag="h4">
                           Notifications Places
                           <p className="category">
                             Click to view notifications
                           </p>
-                        </CardTitle>
+                        </Card.Title>
                       </Col>
                     </Row>
                     <Row>
@@ -297,11 +255,11 @@ class Notifications extends React.Component {
                       </Col>
                     </Row>
                   </div>
-                </CardBody>
+                </Card.Body>
               </Card>
             </Col>
           </Row>
-        </div>
+
       </>
     );
   }

@@ -3,15 +3,10 @@ import React from "react";
 // reactstrap components
 import { Card, Row, Col } from "react-bootstrap";
 
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
-
 class Typography extends React.Component {
   render() {
     return (
       <>
-        <PanelHeader size="sm" />
-        <div className="content">
           <Row>
             <Col md={12}>
               <Card>
@@ -131,7 +126,6 @@ class Typography extends React.Component {
               </Card>
             </Col>
           </Row>
-        </div>
       </>
     );
   }

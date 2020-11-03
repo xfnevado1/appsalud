@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  Nav,
-  Dropdown,
-  Container,
-  InputGroup,
-  Form,
-} from "react-bootstrap";
+import { Collapse, Navbar, Nav, Dropdown, Container, InputGroup, Form, } from "react-bootstrap";
 
 import routes from "routes.js";
 
@@ -23,22 +15,14 @@ class Header extends React.Component {
   sidebarToggle = React.createRef();
   toggle = () => {
     if (this.state.isOpen) {
-      this.setState({
-        color: "transparent",
-      });
+      this.setState({ color: "transparent" });
     } else {
-      this.setState({
-        color: "white",
-      });
+      this.setState({ color: "white" });
     }
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState({ isOpen: !this.state.isOpen });
   };
   dropdownToggle = (e) => {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
+    this.setState({ dropdownOpen: !this.state.dropdownOpen });
   };
   getBrand = () => {
     var name;
@@ -72,13 +56,9 @@ class Header extends React.Component {
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   updateColor = () => {
     if (window.innerWidth < 993 && this.state.isOpen) {
-      this.setState({
-        color: "white",
-      });
+      this.setState({ color: "white" });
     } else {
-      this.setState({
-        color: "transparent",
-      });
+      this.setState({ color: "transparent" });
     }
   };
   componentDidMount() {
@@ -97,29 +77,11 @@ class Header extends React.Component {
   render() {
     return (
       // add or remove classes depending if we are on full-screen-maps page or not
-      <Navbar
-        color={
-          this.props.location.pathname.indexOf("full-screen-maps") !== -1
-            ? "white"
-            : this.state.color
-        }
-        /* expand="lg" */
-        className={
-          this.props.location.pathname.indexOf("full-screen-maps") !== -1
-            ? "navbar-absolute fixed-top"
-            : "navbar-absolute fixed-top " +
-              (this.state.color === "transparent" ? "navbar-transparent " : "")
-        }
-      >
+      <Navbar color={this.state.color} /* expand="lg" */ className={ "navbar-absolute fixed-top " } >
         <Container fluid >
           <div className="navbar-wrapper">
             <div className="navbar-toggle">
-              <button
-                type="button"
-                ref={this.sidebarToggle}
-                className="navbar-toggler"
-                onClick={() => this.openSidebar()}
-              >
+              <button type="button" ref={this.sidebarToggle} className="navbar-toggler" onClick={() => this.openSidebar()} >
                 <span className="navbar-toggler-bar bar1" />
                 <span className="navbar-toggler-bar bar2" />
                 <span className="navbar-toggler-bar bar3" />
@@ -141,8 +103,8 @@ class Header extends React.Component {
               <Nav.Item>
                 <Form>
                   <InputGroup className="no-border">
-                    <Form.Control placeholder="Search..." />
-                    <InputGroup.Append>
+                    <Form.Control className="navbar-input-search" placeholder="Search..." />
+                    <InputGroup.Append className="navbar-input-append">
                       <InputGroup.Text>
                         <i className="now-ui-icons ui-1_zoom-bold" />
                       </InputGroup.Text>
@@ -159,14 +121,14 @@ class Header extends React.Component {
                   </p>
                 </Link>
               </Nav.Item>
-              <Dropdown /* isOpen={this.state.dropdownOpen} toggle={(e) => this.dropdownToggle(e)} */ >
-                <Dropdown.Toggle>
+              <Dropdown  /* isOpen={this.state.dropdownOpen} toggle={(e) => this.dropdownToggle(e)} */ >
+                <Dropdown.Toggle className=" bg-transparent no-border" >
                   <i className="now-ui-icons location_world" />
-                  <p>
+                  {/* <p>
                     <span className="d-lg-none d-md-block">Some Actions</span>
-                  </p>
+                  </p> */}
                 </Dropdown.Toggle>
-                <Dropdown.Menu>
+                <Dropdown.Menu className="dropdown-menu-right">
                   <Dropdown.Item tag="a">Action</Dropdown.Item>
                   <Dropdown.Item tag="a">Another Action</Dropdown.Item>
                   <Dropdown.Item tag="a">Something else here</Dropdown.Item>

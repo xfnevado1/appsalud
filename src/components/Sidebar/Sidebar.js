@@ -12,20 +12,26 @@ var ps;
 function Menu (prop){
   const [open, setOpen] = useState(false);
   if (prop.childs){
-    return <li>
+    let hasClass = false
+    const listMenu = prop.childs.map((item, key) => {
+      if (prop.classActive ===(item.layout + item.path)){
+        hasClass = true
+      }
+      return <li className={ (prop.classActive ===(item.layout + item.path))?"active":"" } key={key}>
+        <NavLink to={item.layout + item.path} className="nav-link" activeClassName="active" key={"m"+key}>
+          <span className="sidebar-mini-icon">{item.icon}</span>
+          <span className="sidebar-normal">{item.name}</span>
+        </NavLink>
+      </li>
+    })
+    return <li className={ (hasClass)?"active":""}>
         <Nav.Link to="#pablo" data-toggle="collapse" aria-expanded={(open)?"true":""} onClick={()=>{ setOpen(!open)} }>
           <i className={"now-ui-icons " + prop.icon} />
           <p>{prop.name} <b className="caret"></b></p>
         </Nav.Link>
         <Navbar.Collapse in={open}>
           <ul className="nav">
-          { prop.childs.map((item, key) => <li className={ (prop.classActive ===(item.layout + item.path))?"active":"" } key={key}>
-              <NavLink to={item.layout + item.path} className="nav-link" activeClassName="active" key={"m"+key}>
-                <span className="sidebar-mini-icon">{item.icon}</span>
-                <span className="sidebar-normal">{item.name}</span>
-              </NavLink>
-            </li>
-            )}
+            {listMenu}
           </ul>
         </Navbar.Collapse> 
     </li>    
