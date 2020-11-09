@@ -217,6 +217,13 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
     transition: all 150ms ease 0s; 
 }
 
+/* login top bar */
+.nav-item .nav-link i { padding:.1rem .3rem;}
+.nav-item:focus{background:#888;background:linear-gradient(#888,#000 80%);z-index:3;}
+.navbar > .nav-item:hover {
+    background-color:hsla(0,0%,100%,.2);
+}
+
 /* iconos */
 .now-ui-icons{display:inline-block;font:normal normal normal 14px/1 "Nucleo Outline";font-size:inherit;text-transform:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 .now-ui-icons.business_chart-pie-36:before{content:"\ea1f";}
@@ -233,11 +240,16 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
 .now-ui-icons.text_align-center:before{content:"\ea05";}
 .now-ui-icons.ui-1_zoom-bold:before{content:"\ea64";}
 .now-ui-icons.users_single-02:before{content:"\ea51";}
-.now-ui-icons.design_app:before { content: "\ea08"; }
+.now-ui-icons.tech_mobile:before { content: "\ea3e"; }
 .now-ui-icons.location_map-big:before { content: "\ea3d"; }
 .now-ui-icons.ui-1_bell-53:before { content: "\ea0f"; }
 .now-ui-icons.files_paper:before { content: "\ea43"; }
 .now-ui-icons.design-2_ruler-pencil:before { content: "\ea48"; }
+.now-ui-icons.users_circle-08:before { content: "\ea23"; }
+.now-ui-icons.business_money-coins:before { content: "\ea40"; }
+.now-ui-icons.ui-1_lock-circle-open:before { content: "\ea35"; }
+.now-ui-icons.text_caps-small:before { content: "\ea1b"; }
+    
 
 .main-panel{position:relative;float:right;background-color:#ebecf1;transition:all .5s cubic-bezier(.685,.0473,.346,1);}
 .main-panel>.navbar{margin-bottom:0;}
@@ -247,6 +259,19 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
 /* Card Style*/
 .card-header-content { margin-bottom: 5px; }
 
+/* .login-page,  */
+.card-login {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#999;
+ }
 
 /*! CSS Used from: https://demos.creative-tim.com/now-ui-dashboard-pro-react/static/css/2.829c9cb5.chunk.css */
 /* *,:after,:before{box-sizing:border-box;}

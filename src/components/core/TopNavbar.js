@@ -6,7 +6,7 @@ import routes from "routes.js";
 
 //import "assets/css/now-ui-dashboard.css"
 
-class Header extends React.Component {
+class TopNavBar extends React.Component {
   state = {
     isOpen: false,
     dropdownOpen: false,
@@ -150,4 +150,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default TopNavBar;

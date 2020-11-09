@@ -28,7 +28,7 @@ import {
 import { Row, Col, Card, CardHeader, CardBody } from "reactstrap";
 
 // core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
+import PanelHeader from "components/core/PanelHeader.js";
 
 const MapWrapper = withScriptjs(
   withGoogleMap((props) => (
