@@ -11,23 +11,23 @@ var ps;
 
 function Menu (prop){
   const [open, setOpen] = useState(false);
-  if (prop.childs){
+  if (prop.subRows){
     let hasClass = false
-    const listMenu = prop.childs.map((item, key) => {
-      if (prop.classActive ===(item.layout + item.path)){
+    const listMenu = prop.subRows.map((item, key) => {
+      if (prop.classActive ===("/admin" + item.path)){
         hasClass = true
       }
-      return <li className={ (prop.classActive ===(item.layout + item.path))?"active":"" } key={key}>
-        <NavLink to={item.layout + item.path} className="nav-link" activeClassName="active" key={"m"+key}>
+      return <li className={ (prop.classActive ===("/admin" + item.path))?"active":"" } key={key}>
+        <NavLink to={"/admin" + item.path} className="nav-link" activeClassName="active" >
           <span className="sidebar-mini-icon">{item.icon}</span>
-          <span className="sidebar-normal">{item.name}</span>
+          <span className="sidebar-normal">{item.nombre}</span>
         </NavLink>
       </li>
     })
     return <li className={ (hasClass)?"active":""}>
         <Nav.Link to="#pablo" data-toggle="collapse" aria-expanded={(open)?"true":""} onClick={()=>{ setOpen(!open)} }>
           <i className={"now-ui-icons " + prop.icon} />
-          <p>{prop.name} <b className="caret"></b></p>
+          <p>{prop.nombre} <b className="caret"></b></p>
         </Nav.Link>
         <Navbar.Collapse in={open}>
           <ul className="nav">
@@ -37,14 +37,15 @@ function Menu (prop){
     </li>    
     
   }
-  else {
-    return <li className={ (prop.classActive ===(prop.layout + prop.path))?"active":"" }  >
-      <NavLink to={prop.layout + prop.path} className="nav-link" activeClassName="active" >
+  else if (prop.tipo === 0){
+    return <li className={ (prop.classActive ===("/admin" + prop.path))?"active":"" }  >
+      <NavLink to={"/admin" + prop.path} className="nav-link" activeClassName="active" >
         <i className={"now-ui-icons " + prop.icon} />
-        <p>{prop.name}</p>
+        <p>{prop.nombre}</p>
       </NavLink>
     </li>
   }
+  return ""
 }
 
 class Sidebar extends React.Component {
@@ -83,13 +84,13 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar" data-color={this.props.backgroundColor}>
         <div className="logo">
-          <a href="https://www.creative-tim.com?ref=nudr-sidebar" className="simple-text logo-mini" target="" >
+          <a href="_blank" className="simple-text logo-mini" target="" >
             <div className="logo-img">
               <img src={logo} alt="react-logo" />
             </div>
           </a>
-          <a href="https://www.creative-tim.com?ref=nudr-sidebar" className="simple-text logo-normal" target="" >
-            Creative Tim
+          <a href="_blank" className="simple-text logo-normal" target="" >
+            APPSALUD
           </a>
           <div className="navbar-minimize">
             <button type="button" id="minimizeSidebar" onClick={this.handleClickMinimize} className="btn-round btn-icon btn btn-outline-neutral">

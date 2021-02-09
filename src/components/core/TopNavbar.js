@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Collapse, Navbar, Nav, Dropdown, Container, InputGroup, Form, } from "react-bootstrap";
 
-import routes from "routes.js";
+import {adminRoutes} from "routes.js";
 
 //import "assets/css/now-ui-dashboard.css"
 
@@ -26,7 +26,7 @@ class TopNavBar extends React.Component {
   };
   getBrand = () => {
     var name;
-    routes.map((prop, key) => {
+    adminRoutes.map((prop, key) => {
       if (prop.collapse) {
         prop.views.map((prop, key) => {
           if (prop.path === this.props.location.pathname) {
@@ -75,6 +75,7 @@ class TopNavBar extends React.Component {
     }
   }
   render() {
+    let adminRoutes = this.props.adminRoutes;
     return (
       // add or remove classes depending if we are on full-screen-maps page or not
       <Navbar color={this.state.color} /* expand="lg" */ className={ "navbar-absolute fixed-top " } >
@@ -121,19 +122,23 @@ class TopNavBar extends React.Component {
                   </p>
                 </Link>
               </Nav.Item>
-              <Dropdown  /* isOpen={this.state.dropdownOpen} toggle={(e) => this.dropdownToggle(e)} */ >
-                <Dropdown.Toggle className=" bg-transparent no-border" >
-                  <i className="now-ui-icons location_world" />
-                  {/* <p>
-                    <span className="d-lg-none d-md-block">Some Actions</span>
-                  </p> */}
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="dropdown-menu-right">
-                  <Dropdown.Item tag="a">Action</Dropdown.Item>
-                  <Dropdown.Item tag="a">Another Action</Dropdown.Item>
-                  <Dropdown.Item tag="a">Something else here</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              {/* Menu Administrador */}
+              {adminRoutes && adminRoutes.length > 0 &&
+                <Dropdown  /* isOpen={this.state.dropdownOpen} toggle={(e) => this.dropdownToggle(e)} */ >
+                  <Dropdown.Toggle className=" bg-transparent no-border" >
+                    <i className="now-ui-icons location_world" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="dropdown-menu-right">
+                    {adminRoutes.map((item,key)=>{
+                      return <Dropdown.Item as={Link} to={"/admin"+item.path} key={key}>
+                                <i className ={"now-ui-icons " + item.icon } />
+                                <p><span className="d-md-block">{item.nombre}</span></p>
+                            </Dropdown.Item>
+                    })}
+                  </Dropdown.Menu>
+                </Dropdown>
+              }
+
               <Nav.Item>
                 <Link to="#pablo" className="nav-link">
                   <i className="now-ui-icons users_single-02" />

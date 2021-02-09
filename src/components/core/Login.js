@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import {Nav, Container, Collapse, Navbar, Card, InputGroup, Button, Col, Form, } from "react-bootstrap";
 
-import CustomInput from "components/Controls/CustomInput.js"
+import {CustomInput} from "components/Controls/CustomInput.js"
 import runQuery from "variables/Generals"
 
 const SignupSchema = Yup.object().shape({
@@ -22,10 +22,15 @@ constructor(props) {
 handleSubmit =(values, {setSubmitting})=>{
     runQuery("/login/signup",{"usuario":values.txtUserName, "password":values.txtPassword})
     .then((resp)=>{
-        //console.log(resp.data.token)
+        console.log(resp.data)
         this.props.dispatch({
             type: 'UPDATE_TOKEN',
             payload: { token: resp.data.token }
+        })
+
+        this.props.dispatch({
+            type: 'UPDATE_INFO_USER',
+            payload: { menuAdmin: resp.data.menuAdmin, menuUser: resp.data.menuUser}
         })
       
         this.props.history.push("/admin");
@@ -36,6 +41,20 @@ handleSubmit =(values, {setSubmitting})=>{
     setSubmitting(true)
 }
 
+loadMenusUser =(idusuario)=>{
+    runQuery("/grupos/deleteGroup",{"idusuario":idusuario})
+    .then((resp)=>{
+
+        this.props.dispatch({
+            type: 'UPDATE_TOKEN',
+            payload: { token: resp.data.token }
+        })
+
+    })
+    .catch((error)=>{
+        alert("Error Eliminando Usuario")
+    })
+}
 
 render(){
     return <div className="login-page sidebar-mini ">
@@ -52,7 +71,7 @@ render(){
                 <span className="navbar-toggler-bar navbar-kebab"></span>
             </button>
 
-            <Collapse className="navbar-collapse justify-content-end" id="navigation">
+            <Collapse className="navbar-login navbar-collapse justify-content-end" id="navigation">
                 <Navbar>
                     <Nav.Item>
                         <Nav.Link href="register.html"><i className="now-ui-icons tech_mobile"></i>Register</Nav.Link>
@@ -99,8 +118,7 @@ render(){
                                             </InputGroup.Text>
                                         </InputGroup.Prepend>
                                         <Field type="text" name="txtUserName" value={values.name}
-                                            onChange={handleChange} isInvalid={errors.txtUserName && touched.txtUserName}  
-                                            placeholder="User Name..." component={CustomInput }
+                                            onChange={handleChange} placeholder="User Name..." component={CustomInput }
                                         />
                                     </InputGroup>
                                     </Form.Group>
@@ -112,8 +130,7 @@ render(){
                                             </InputGroup.Text>
                                         </InputGroup.Prepend>
                                         <Field type="text" name="txtPassword" value={values.txtPassword}
-                                            onChange={handleChange} isInvalid={errors.txtPassword && touched.txtPassword} 
-                                            placeholder="Password..." component={CustomInput}
+                                            onChange={handleChange} placeholder="Password..." component={CustomInput}
                                         />
                                     </InputGroup>
                                 </Card.Body>

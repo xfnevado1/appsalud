@@ -218,12 +218,20 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
 }
 
 /* login top bar */
-.nav-item .nav-link i { padding:.1rem .3rem;}
-.nav-item:focus{background:#888;background:linear-gradient(#888,#000 80%);z-index:3;}
-.navbar > .nav-item:hover {
+.navbar-login.nav-item .nav-link i { padding:.1rem .3rem;}
+.navbar-login.nav-item:focus{background:#888;background:linear-gradient(#888,#000 80%);z-index:3;}
+.navbar-login.navbar > .nav-item:hover {
     background-color:hsla(0,0%,100%,.2);
 }
 
+/* dashboard top navbar */
+.navbar .dropdown .dropdown-item i {
+    padding-right: 10px;
+    font-size: medium;
+}
+.navbar .dropdown .dropdown-item:hover  {
+    color: blue;
+}
 /* iconos */
 .now-ui-icons{display:inline-block;font:normal normal normal 14px/1 "Nucleo Outline";font-size:inherit;text-transform:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 .now-ui-icons.business_chart-pie-36:before{content:"\ea1f";}
@@ -244,12 +252,13 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
 .now-ui-icons.location_map-big:before { content: "\ea3d"; }
 .now-ui-icons.ui-1_bell-53:before { content: "\ea0f"; }
 .now-ui-icons.files_paper:before { content: "\ea43"; }
-.now-ui-icons.design-2_ruler-pencil:before { content: "\ea48"; }
+.now-ui-icons.ruler-pencil:before { content: "\ea48"; }
 .now-ui-icons.users_circle-08:before { content: "\ea23"; }
 .now-ui-icons.business_money-coins:before { content: "\ea40"; }
 .now-ui-icons.ui-1_lock-circle-open:before { content: "\ea35"; }
 .now-ui-icons.text_caps-small:before { content: "\ea1b"; }
-    
+.now-ui-icons.zoom_bold:before { content: "\ea64"; }
+.now-ui-icons.simple-remove:before { content: "\ea53"; }
 
 .main-panel{position:relative;float:right;background-color:#ebecf1;transition:all .5s cubic-bezier(.685,.0473,.346,1);}
 .main-panel>.navbar{margin-bottom:0;}
@@ -258,7 +267,8 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
 
 /* Card Style*/
 .card-header-content { margin-bottom: 5px; }
-
+.card-header-tabs { border-bottom-width: 1px; }
+/* .tab-pane{ border:  solid 1px;  border-top: 0;    } */
 /* .login-page,  */
 .card-login {
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -273,7 +283,102 @@ a[data-toggle=collapse][aria-expanded=true] .caret{
     background:#999;
  }
 
-/*! CSS Used from: https://demos.creative-tim.com/now-ui-dashboard-pro-react/static/css/2.829c9cb5.chunk.css */
+ /* Fieldset Styles */
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1em 1em 1em !important;
+    margin: 0 0 1em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+legend.scheduler-border {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+    font-size: small;
+}
+
+.table td {
+    padding: 0.25rem;
+    font-size: small;
+}
+.card-body .btn,
+.card-body{
+    font-size: small;
+}
+/* para los foooter en los form content */
+.footerStyle {
+    border-top: 1px solid #ced4da; 
+    padding: 1rem 0.75rem; 
+    background-color:whitesmoke 
+};
+  
+.react-autosuggest__container {
+    position: relative;
+  }
+  
+.react-autosuggest__input {
+    width: 140px;
+    height: 30px;
+    padding: 10px 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+  
+.react-autosuggest__input--focused {
+    outline: none;
+}
+  
+.react-autosuggest__input--open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+  
+.react-autosuggest__suggestions-container {
+    display: none;
+}
+  
+.react-autosuggest__suggestions-container--open {
+    display: block;
+    position: absolute;
+    top: 33px;
+    width: 480px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 2;
+  }
+  
+.react-autosuggest__suggestions-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+  
+.react-autosuggest__suggestion {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+  
+.react-autosuggest__suggestion--highlighted {
+    background-color: #ddd;
+}
+  
+/* legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+ *//*! CSS Used from: https://demos.creative-tim.com/now-ui-dashboard-pro-react/static/css/2.829c9cb5.chunk.css */
 /* *,:after,:before{box-sizing:border-box;}
 footer,nav{display:block;}
  */
